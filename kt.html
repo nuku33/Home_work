@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимация машинки</title>
+    <style>
+        /* Сброс отступов */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden; /* Убираем скролл, если машина выезжает */
+            background-color: #87CEEB; /* Голубое небо */
+        }
+
+        /* Пейзаж (дорога и трава) */
+        .scene {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: flex-end; /* Прижимаем дорогу к низу */
+        }
+
+        .road {
+            width: 100%;
+            height: 150px;
+            background-color: #555;
+            border-top: 10px solid #4CAF50; /* Трава */
+            position: relative;
+        }
+
+        /* Разметка на дороге */
+        .road::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: repeating-linear-gradient(
+                90deg,
+                #fff,
+                #fff 30px,
+                transparent 30px,
+                transparent 60px
+            );
+            transform: translateY(-50%);
+        }
+
+        /* --- МАШИНА --- */
+        .car {
+            position: absolute;
+            bottom: 40px; /* Высота над дорогой (уровень колес) */
+            left: 0;
+            width: 200px; /* Ширина по условию */
+            height: 80px;
+            
+            /* Анимация: выезд слева направо */
+            /* calc(100vw - 200px - 50px) - останавливается за 50px до правого края */
+            animation: drive 3s ease-out forwards;
+        }
+
+        /* Ключевые кадры анимации */
+        @keyframes drive {
+            0% {
+                transform: translateX(-250px); /* Старт за левым краем экрана */
+            }
+            100% {
+                transform: translateX(calc(100vw - 250px)); /* Финиш за 50px до правого края (200px ширина + 50px отступ) */
+            }
+        }
+
+        /* Корпус машины */
+        .car-body {
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background-color: #E53935; /* Красный цвет */
+            border-radius: 10px 20px 5px 5px;
+            z-index: 2;
+        }
+
+        /* Крыша (кабина) */
+        .car-roof {
+            position: absolute;
+            bottom: 55px;
+            left: 40px;
+            width: 100px;
+            height: 30px;
+            background-color: #B71C1C; /* Темно-красный */
+            border-radius: 15px 15px 0 0;
+            z-index: 1;
+        }
+
+        /* Окна */
+        .car-window {
+            position: absolute;
+            bottom: 60px;
+            left: 50px;
+            width: 80px;
+            height: 20px;
+            background-color: #B3E5FC; /* Светло-голубой */
+            border-radius: 10px 10px 0 0;
+            z-index: 3;
+        }
+        
+        /* Разделитель окна (стойка) */
+        .car-window::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 4px;
+            height: 100%;
+            background-color: #B71C1C;
+            transform: translateX(-50%);
+        }
+
+        /* Фары */
+        .car-light {
+            position: absolute;
+            bottom: 25px;
+            right: 0;
+            width: 15px;
+            height: 10px;
+            background-color: #FFEB3B; /* Желтый */
+            border-radius: 5px 0 0 5px;
+            z-index: 3;
+        }
+
+        /* Колеса */
+        .wheel {
+            position: absolute;
+            bottom: 0;
+            width: 40px;
+            height: 40px;
+            background-color: #212121; /* Черный */
+            border-radius: 50%;
+            z-index: 4;
+            border: 5px solid #9E9E9E; /* Диски */
+            box-sizing: border-box;
+        }
+
+        .wheel-front {
+            right: 25px;
+        }
+
+        .wheel-back {
+            left: 25px;
+        }
+
+        /* Анимация вращения колес (для красоты, если захотите добавить) */
+        /* .wheel { animation: spin 1s linear infinite; } */
+        
+    </style>
+</head>
+<body>
+
+    <div class="scene">
+        <div class="road">
+            <!-- Машина -->
+            <div class="car">
+                <div class="car-roof"></div>
+                <div class="car-window"></div>
+                <div class="car-body">
+                    <div class="car-light"></div>
+                </div>
+                <div class="wheel wheel-back"></div>
+                <div class="wheel wheel-front"></div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
