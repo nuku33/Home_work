@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница на сетке</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="page">
+        <!-- Шапка -->
+        <header class="header">
+            <h1>Проект "Сетка"</h1>
+            <nav>
+                <ul class="nav-list">
+                    <li><a href="#">Главная</a></li>
+                    <li><a href="#">Каталог</a></li>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <!-- Сайдбар с фильтрами -->
+        <aside class="sidebar">
+            <h2>Фильтры</h2>
+            <ul class="filter-list">
+                <li><a href="#">Все категории</a></li>
+                <li><a href="#">Категория 1</a></li>
+                <li><a href="#">Категория 2</a></li>
+                <li><a href="#">Категория 3</a></li>
+            </ul>
+        </aside>
+
+        <!-- Основной контент с карточками -->
+        <main class="main">
+            <h2>Каталог товаров</h2>
+            <div class="catalog">
+                
+                <!-- Featured карточка (растянутая) -->
+                <article class="card card-featured">
+                    <!-- ВСТАВЛЕНА КАРТИНКА -->
+                    <img src="img-featured.jpg" alt="Специальное предложение" class="card-img">
+                    <div class="card-content">
+                        <h3>Специальное предложение</h3>
+                        <p>Этот товар мы рекомендуем вам в первую очередь. Он обладает лучшими характеристиками в своей категории.</p>
+                        <div class="card-footer">
+                            <span class="price">15 000 ₽</span>
+                            <button>Купить</button>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Обычные карточки (вставлены картинки img1 - img4) -->
+                <article class="card">
+                    <img src="img1.jpg" alt="Товар 1" class="card-img">
+                    <div class="card-content">
+                        <h3>Товар 1</h3>
+                        <p>Краткое описание товара.</p>
+                        <div class="card-footer">
+                            <span class="price">5 000 ₽</span>
+                            <button>В корзину</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="img2.jpg" alt="Товар 2" class="card-img">
+                    <div class="card-content">
+                        <h3>Товар 2</h3>
+                        <p>Краткое описание товара.</p>
+                        <div class="card-footer">
+                            <span class="price">7 000 ₽</span>
+                            <button>В корзину</button>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="card">
+                    <img src="img3.jpg" alt="Товар 3" class="card-img">
+                    <div class="card-content">
+                        <h3>Товар 3</h3>
+                        <p>Краткое описание товара.</p>
+                        <div class="card-footer">
+                            <span class="price">6 500 ₽</span>
+                            <button>В корзину</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="img4.jpg" alt="Товар 4" class="card-img">
+                    <div class="card-content">
+                        <h3>Товар 4</h3>
+                        <p>Краткое описание товара.</p>
+                        <div class="card-footer">
+                            <span class="price">8 000 ₽</span>
+                            <button>В корзину</button>
+                        </div>
+                    </div>
+                </article>
+                
+            </div>
+        </main>
+
+        <!-- Подвал -->
+        <footer class="footer">
+            <p>&copy; 2024 Проект "Сетка". Контакты: info@example.com</p>
+        </footer>
+    </div>
+
+</body>
+</html>
